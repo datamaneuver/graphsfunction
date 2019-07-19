@@ -28,7 +28,6 @@ graphsfunction <- function(data,vec=0,directory=0)
 
     {if(is.numeric(d[,i]))
     {
-      png(paste(names(data)[i], ".png", sep="")) #NOTE this step
 
       par(mfrow=c(2,1))
       boxplot(d[,i], main = paste("Boxplot of", names(d)[i]),
@@ -38,7 +37,7 @@ graphsfunction <- function(data,vec=0,directory=0)
       hist(d[,i], main = paste("Histogram of", names(d)[i]),
            xlab = names(d)[i], ylab = "Frequency", col = "lightgreen", border=F)
 
-      dev.off()  #NOTE this step
+      
     }
       else
 
@@ -48,7 +47,7 @@ graphsfunction <- function(data,vec=0,directory=0)
         slices <- as.numeric(unname(table(d[,i])))
         lbls <- names(table(d[,i]))
 
-        png(paste(names(data)[i], ".png", sep="")) #NOTE this step
+      
 
         barplot(table(d[,i]),freq=T,main = paste("Barplot of", names(d)[i]),
                 xlab = names(d)[i],
@@ -60,7 +59,7 @@ graphsfunction <- function(data,vec=0,directory=0)
         pie(slices,labels = lbls, col=rainbow(length(lbls)),
             main = paste("PieChart of", names(d)[i]))
 
-        dev.off()  #NOTE this step
+        
 
       }}
   }
